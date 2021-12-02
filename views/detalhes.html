@@ -1,0 +1,210 @@
+{$title="Detalhes"}
+
+{include="header-3"}
+
+    {if="$msS != ''"}
+      <script>
+        swal({
+          title: '{$msS}',
+            text: ,
+            icon: "success",
+        });
+      </script>
+    {/if}
+
+    {if="$msE != ''"}
+      <script>
+        swal({
+          title: 'Algo não está certo',
+            text: '{$msE}',
+            icon: "error",
+        });
+      </script>
+    {/if}
+
+
+    <div class="main-panel">
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+
+          <div class="btn-voltar">
+            <a href="/categoria/{$id_categoria}" title="Financas">
+              <span class="material-icons">
+                arrow_back
+              </span>
+              Voltar
+            </a>
+          </div>
+          <div class="row">
+            <div class="col-xl-12 col-md-12">
+              <div class="centralize">
+                <div class="col-xl-5 col-lg-6 col-md-6 col-sm-6">
+                  <div class="card">
+                    <div class="card-header card-header-primary">
+                      <h4 class="card-title">Orçamento</h4>
+                    </div>
+                    <div class="card-body table-responsive">
+                      <table class="table table-hover">
+                        <thead class="text-warning">
+                          <th>Receita</th>
+                          <th>Despesa(s)</th>
+                          <th>Saldo Total</th>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            {loop="$todosProdServCategoria"}
+                            <td class="saldo-verde"><small>R$ </small>{if="$value.receita == null"} 0 {else} {$value.receita} {/if}</td>
+                            <td class="saldo-verde"><small>R$ </small>{if="$value.despesa == null"} 0 {else} {$value.despesa} {/if}</td>
+                            {if="$value.saldo < 0"}
+                            <td class="saldo-vermelho">
+                              <small>R$ </small>{if="$value.saldo == null"} 0 {else} {$value.saldo} {/if}
+                            </td>
+                            {else}
+                            <td class="saldo-verde">
+                              <small>R$ </small>{if="$value.saldo == null"} 0 {else} {$value.saldo} {/if}
+                            </td>
+                            {/if}
+                            {/loop}
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <!-- <div class="card card-stats card-categoria">
+                    <div class="card-header card-header-warning card-header-icon">
+                      {loop="$todosProdServCategoria"}
+                      <p class="card-category">Receita</p>
+                      <h3 class="card-title saldo-verde">
+                        <small>R$ </small>{if="$value.receita == null"} 0 {else} {$value.receita} {/if}
+                      </h3>
+                      <p class="card-category">Despesa(s)</p>
+                      <h3 class="card-title saldo-verde">
+                        <small>R$ </small>{if="$value.despesa == null"} 0 {else} {$value.despesa} {/if}
+                      </h3>
+                      <p class="card-category">Saldo Total</p>
+                      {if="$value.saldo < 0"}
+                      <h3 class="card-title saldo-vermelho">
+                        <small>R$ </small>{if="$value.saldo == null"} 0 {else} {$value.saldo} {/if}
+                      </h3>
+                      {else}
+                      <h3 class="card-title saldo-verde">
+                        <small>R$ </small>{if="$value.saldo == null"} 0 {else} {$value.saldo} {/if}
+                      </h3>
+                      {/if}
+                      {/loop}
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row table-detalhes">
+            <div class="col-xl-5 col-lg-6 col-md-6 col-sm-6">
+              <div class="row">
+                <div class="col-lg-12 col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-primary">
+                      <h4 class="card-title">Receita</h4>
+                    </div>
+                    <div class="card-body table-responsive">
+                      <table class="table table-hover">
+                        <thead class="text-warning">
+                          <th>Primeira parcela</th>
+                          <th>Segunda parcela</th>
+                          <th>Alimentação</th>
+                          <th>Bônus</th>
+                        </thead>
+                        <tbody>
+                          {loop="$retornaReceiraUser"}
+                          <tr>
+                            <td>R$ {$value.primeira_parc}</td>
+                            <td>R$ {$value.segunda_parc}</td>
+                            <td>R$ {$value.alimentacao}</td>
+                            <td>R$ {$value.bonus}</td>
+                          </tr>
+                          {/loop}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-7 col-lg-6 col-md-6 col-sm-6">
+
+              <div class="row">
+                <div class="col-lg-12 col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-primary">
+                      <h4 class="card-title">Despesa<span class="despesa-s">(s)</span></h4>
+                    </div>
+                    <div class="card-body table-responsive">
+                      <table class="table table-hover">
+                        <thead class="text-warning">
+                          <th>Produto/Serviço</th>
+                          <th>Valor R$</th>
+                          <th>Data da compra</th>
+                          <th>Editar</th>
+                          <th>Deletar</th>
+                        </thead>
+                        <tbody>
+                          {loop="$retornaDespesaUser"}
+                          {if="$value.paga_s_n === 's'"}
+                          <tr style="text-decoration: line-through;">
+                          {else}
+                          <tr>
+                          {/if}
+                            <td>{$value.despesa}</td>
+                            <td>R$ {$value.valor}</td>
+                            <td>{function="formatDate($value.data_compra)"}</td>
+                            <td>
+                              <a href="/alterar-despesa/{$value.id_conta}/{$value.id_despesa}/{$id_categoria}" class="edit-icon" title="Alterar Despesa">
+                                <span class="material-icons">
+                                  mode_edit
+                                </span>
+                              </a>
+                            </td>
+                            <td>
+                              <a href="/deletar-despesa/{$value.id_conta}/{$value.id_despesa}/{$id_categoria}" class="delete-icon" title="Deletar Despesa">
+                                <span class="material-icons">
+                                  delete
+                                </span>
+                              </a>
+                            </td>
+                          </tr>
+                          {/loop}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+
+        </div>
+      </div>
+
+      <div class="btn-adicionar-2">
+        {if="$detalheTemReceira === 1"}
+          <a href="/alterar-receita/{$id_conta}/{$idReceita}/{$id_categoria}" title="Receita">
+        {else}
+          <a href="/receita/{$id_conta}" title="Receita">
+        {/if}
+          <span class="material-icons">
+            assignment
+          </span>
+        </a>
+      </div>
+
+      <div class="btn-adicionar">
+        <a href="/despesa/{$id_conta}/{$id_categoria}" title="Despesa">
+          <span class="material-icons">
+            next_week
+          </span>
+        </a>
+      </div>
+  {include="footer-3"}

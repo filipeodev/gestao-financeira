@@ -1,0 +1,44 @@
+{$title="Alterar Categoria"}
+
+{include="header-2"}
+
+    {if="$msE != ''"}
+      <script>
+        swal({
+          title: "Algo não está certo!",
+            text: '{$msE}',
+            icon: "error",
+        });
+      </script>
+    {/if}
+
+    <div class="main-panel">
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Preencha os campos</h4>
+                </div>
+                <div class="card-body">
+                  <form class="form-novo-mes" method="post" action="/alterar-categoria/{$retornaCategoria.id_categoria}">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Nome da Categoria</label>
+                          <input type="text" id="nome_cat" name="nome_cat" class="form-control" value="{$retornaCategoria.nome_cat}" required autofocus>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right">Inserir</button>
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  {include="footer-2"}

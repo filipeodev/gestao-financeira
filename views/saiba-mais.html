@@ -1,0 +1,87 @@
+{include="header-2"}
+
+
+    {if="$msS != ''"}
+      <script>
+        swal({
+          title: "{$msS}",
+            text: '',
+            icon: "success",
+        });
+      </script>
+    {/if}
+
+    <div class="main-panel">
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-6 col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Capital</h4>
+                </div>
+                <div class="card-body table-responsive">
+                  <table class="table table-hover">
+                    <thead class="text-warning">
+                      <th class="text-center">Mes / Ano Orçamento</th>
+                      <th class="text-center">Editar / Alterar</th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center">{$mes.mes_orc} / {$mes.ano_orc}</td>
+                        <td class="td-actions text-center">
+                          <a href="/editar-novo-mes/{$id}" title="Alterar capital">
+                            <i class="material-icons">edit</i>
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Gastos</h4>
+                </div>
+                <div class="card-body table-responsive">
+                  <table class="table table-hover">
+                    <thead class="text-warning">
+                      <th class="text-center">Produto</th>
+                      <th class="text-center">Valor</th>
+                      <th class="text-center">Data da compra</th>
+                      <th class="text-center">Editar</th>
+                    </thead>
+                    <tbody>
+                      {loop="$produtos"}
+                        <tr>
+                          <td class="text-center">{$value.produto}</td>
+                          <td class="text-center">R$ {$value.valor}</td>
+                          <td class="text-center">{function="formatDate($value.data_compra)"}</td>
+                          <td class="td-actions text-center">
+                            <a href="/editarproduto" title="Alterar produto">
+                              <i class="material-icons">edit</i>
+                            </a>
+                          </td>
+                        </tr>
+                      {/loop}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="btn-adicionar">
+        <a href="/novo-produto/{$id}" title="Novo Mês">
+          <span class="material-icons">
+            library_add
+          </span>
+        </a>
+      </div>
+  {include="footer-2"}

@@ -1,0 +1,67 @@
+{$title="Finanças"}
+
+{include="header"}
+
+    {if="$msE != ''"}
+      <script>
+        swal({
+          title: "Algo não está certo!",
+            text: '{$msE}',
+            icon: "error",
+        });
+      </script>
+    {/if}
+    {if="$msS != ''"}
+      <script>
+        swal({
+          title: '{$msS}',
+            text: ,
+            icon: "success",
+        });
+      </script>
+    {/if}
+
+
+    <div class="main-panel">
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+
+          <div class="row">
+            {loop="$todasCategorias"}
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-warning card-header-icon categoria">
+                  <p>{$value.nome_cat}</p>
+                </div>
+                <div class="card-footer">
+                  <div class="stats saiba-mais-cat categoria-icon">
+                    <!-- <i class="material-icons text-warning">warning</i> -->
+                    <a href="/alterar-categoria/{$value.id_categoria}" class="edit-icon" title="Alterar Despesa">
+                      <span class="material-icons">
+                        mode_edit
+                      </span>
+                    </a>
+                    <a href="/categoria/{$value.id_categoria}" class="warning-link saiba-mais" title="Mais">Mais</a>
+                    <a href="/deletar-financa/{$value.id_categoria}" class="delete-icon" title="Deletar Categoria">
+                      <span class="material-icons">
+                        delete
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/loop}
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-adicionar">
+        <a href="/criar-categoria" title="Novo Mês">
+          <span class="material-icons">
+            library_add
+          </span>
+        </a>
+      </div>
+  {include="footer-2"}

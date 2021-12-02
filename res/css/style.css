@@ -1,0 +1,171 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.centralize{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.nav.navbar-nav.nav-mobile-menu{
+    display: none!important;
+}
+.fixed-plugin{
+    display: none!important;
+}
+.formulario-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    height: 100vh;
+}
+
+.bg-login {
+    background: #1a2035;
+}
+
+.input-senha {
+    display: flex;
+    position: relative;
+}
+
+.input-senha i {
+    position: absolute;
+    right: 0;
+}
+
+h4.card-title {
+    text-transform: capitalize;
+}
+
+.btn-adicionar {
+    display: inline-block;
+    position: fixed;
+    bottom: 40px;
+    right: 89px;
+    z-index: 2000;
+    cursor: pointer;
+    outline: none !important;
+    padding: 22px;
+    border-radius: 50%;
+    background: linear-gradient(60deg, #7b1fa2, #913f9e);
+}
+
+.btn-adicionar span{
+    font-size: 26px;
+}
+
+.btn-adicionar-2 {
+    display: inline-block;
+    position: fixed;
+    bottom: 40px;
+    left: 290px;
+    z-index: 2000;
+    cursor: pointer;
+    outline: none !important;
+    padding: 22px;
+    border-radius: 50%;
+    background: linear-gradient(60deg, #7b1fa2, #913f9e);
+}
+
+.btn-adicionar-2 span{
+    font-size: 26px;
+}
+
+.form-novo-mes select option {
+    background: #1a2035;
+    border: 1px solid #1a2035;
+}
+.icon-date {
+    position: relative;
+}
+
+.icon-date p {
+    position: absolute;
+    top: 42%;
+    font-size: 17px;
+    right: 0;
+    left: 0;
+    text-align: center;
+}
+.saiba-mais-produto a {
+    font-size: 25px;
+    padding: 8px 98px;
+}
+.saiba-mais-cat a.saiba-mais {
+    font-size: 25px;
+    padding: 8px 143px;
+}
+.categoria p{
+    text-align: center;
+    font-size: 60px;
+    padding: 33px 0px 0 0px;
+    line-height: 51px;
+}
+.card-icon p{
+    font-size: 33px;
+    margin: 16px 1px;
+}
+.despesa-s{
+    text-transform: lowercase;
+}
+.table-detalhes td {
+    text-align: center;
+}
+.edit-icon span {
+    color: #288c6c;
+    font-size: 21px!important;
+}
+
+.delete-icon span {
+    color: #d22824;
+    font-size: 21px!important;
+}
+.card-categoria .edit-icon{
+    padding: 0 22px;
+}
+.card-categoria .delete-icon{
+    padding: 0 22px;
+}
+.saiba-mais-cat.categoria-icon a.saiba-mais{
+    padding: 8px 91px!important;
+}
+.clear{
+    clear: both;
+}
+.saldo-vermelho{
+    color: #d22824!important;
+}
+.saldo-verde{
+    color: #288c6c!important;
+}
+.categoria-saiba-mais .saiba-mais-cat .saiba-mais{
+    padding: 8px 53px;
+}
+.paga-ou-nao select {
+    margin-top: 14px;
+    padding: 8px 16px;
+    background: transparent;
+    color: white;
+}
+/*Mobile*/
+@media only screen and (max-width: 765px){
+    .saiba-mais-cat.categoria-icon a.saiba-mais {
+        padding: 8px 76px!important;
+    }
+    .btn-adicionar{
+        bottom: 30px!important;
+        right: 18px!important;
+    }
+    .btn-adicionar-2{
+        bottom: 30px!important;
+        left: 18px!important;
+    }
+    .formulario-login{
+        padding: 0 25px;
+    }
+}
